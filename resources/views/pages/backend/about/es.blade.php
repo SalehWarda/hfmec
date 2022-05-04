@@ -2,7 +2,7 @@
 
 @section('title')
 
-   الخبرة
+    {{trans('dashboard.HFMEC')}} - {{trans('dashboard.ExpertiseSummary')}}
 
 @endsection
 
@@ -15,13 +15,13 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-sm-6">
-                    <h4 class="mb-0">الخبرة</h4>
+                    <h4 class="mb-0">{{trans('dashboard.ExpertiseSummary')}}</h4>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                         <li class="breadcrumb-item"><a href="{{route('dashboard')}}"
-                                                       class="default-color">الرئيسية</a></li>
-                        <li class="breadcrumb-item active">الخبرة</li>
+                                                       class="default-color">{{trans('dashboard.Main')}}</a></li>
+                        <li class="breadcrumb-item active">{{trans('dashboard.ExpertiseSummary')}}</li>
                     </ol>
                 </div>
             </div>
@@ -50,7 +50,7 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="es_ar">الرؤيا والقيم بالعربية :</label>
+                                                        <label for="es_ar">{{trans('dashboard.ExpertiseSummaryInArabic')}} :</label>
 
                                                         <textarea name="es_ar" rows="3" class="form-control summernote">{!! old('es_ar',$es->getTranslation('es','ar'))  !!}</textarea>
 
@@ -61,7 +61,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="es_en"> الرؤيا والقيم بالإنجليزية :</label>
+                                                        <label for="es_en"> {{trans('dashboard.ExpertiseSummaryInEnglish')}} :</label>
 
                                                         <textarea name="es_en" rows="3" class="form-control summernote">{!! old('es_en',$es->getTranslation('es','en')) !!}</textarea>
 
@@ -76,7 +76,7 @@
 
                                                 <div class="col-12">
 
-                                                    <label for="image">صورة المقدمة :</label>
+                                                    <label for="image">{{trans('dashboard.ExpertiseSummaryImage')}} :</label>
                                                     <br>
                                                     <div class="file-loading">
                                                         <input type="file"  name="image" id="es-image" class="file-input-overview ">
@@ -91,7 +91,7 @@
 
                                             </div>
                                             <br>
-                                            <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ التغييرات</button>
+                                            <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{trans('dashboard.ExpertiseSummaryImage')}}</button>
 
 
                                         </form>

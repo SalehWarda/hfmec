@@ -9,17 +9,20 @@
             <!--Top Left-->
             <div class="top-left pull-left">
                 <ul class="links-nav clearfix">
-                    <li><span class="fa fa-check-square-o"></span> No.1 Supplier</li>
-                    <li><span class="fa  fa-support"></span> Certified ISO 9001 : 2008</li>
-                    <li><span class="fa fa-bell-o"></span> Leading Service Provider</li>
+                    <li><span class="fa fa-bell-o"></span><strong>{{trans('dashboard.name_office')}}</strong>  </li>
                 </ul>
             </div>
 
             <!--Top Right-->
             <div class="top-right pull-right">
                 <ul class="links-nav clearfix">
-                    <li><span class="fa fa-star-o"></span> Award Wining Firm</li>
-                    <li><span class="fa fa-globe"></span> English</li>
+
+
+                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                    <li><a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                        {{ $properties['native'] }}</a> <span class="fa fa-globe"></span></li>
+                    @endforeach
+
                 </ul>
             </div>
         </div>
@@ -32,7 +35,7 @@
             <div class="clearfix">
 
                 <div class="pull-left logo-outer">
-                    <div class="logo"><a href="index.html"><img src="{{asset('assets/frontend/images/logoh.png')}}" alt="Brighton" title="Brighton"></a></div>
+                    <div class="logo"><a href="{{route('index')}}"><img src="{{asset('assets/frontend/images/logo.png')}}" width="400" height="120" alt="" title=""></a></div>
                 </div>
 
                 <div class="pull-right upper-right clearfix">
@@ -41,8 +44,8 @@
                     <div class="upper-column info-box">
                         <div class="icon-box"><span class="flaticon-location-pin"></span></div>
                         <ul>
-                            <li><strong>Mon - Sat : 9.00 - 17.30</strong></li>
-                            <li>Sunday : Closed</li>
+                            <li><strong>Location</strong></li>
+                            <li>{{$settings->address}}</li>
                         </ul>
                     </div>
 
@@ -50,8 +53,8 @@
                     <div class="upper-column info-box">
                         <div class="icon-box"><span class="flaticon-technology"></span></div>
                         <ul>
-                            <li><strong>+1 - 000 - 8990 - 1560</strong></li>
-                            <li>support@domain.com</li>
+                            <li><strong>Phone</strong></li>
+                            <li><a href=" tel: {{$settings->mobile}}">{{$settings->mobile}}</a></li>
                         </ul>
                     </div>
 
@@ -61,10 +64,10 @@
                             <a href="#" class="theme-btn btn-style-one">get a quote</a>
                         </div>-->
 
-                        <div class="icon-box"><span class="flaticon-inbox"></span></div>
+                        <div class="icon-box"><span class="flaticon-envelope"></span></div>
                         <ul>
-                            <li><strong>Downloads</strong></li>
-                            <li>PDF Brochures</li>
+                            <li><strong>Send US Email</strong></li>
+                            <li><a href="mailto: {{$settings->email}}">{{$settings->email}}</a></li>
                         </ul>
 
                     </div>
@@ -94,42 +97,42 @@
                     <div class="navbar-collapse collapse clearfix">
                         <ul class="navigation clearfix">
 
-                            <li><a href="about-us.html">Home</a></li>
+                            <li class="@if(Route::current()->getName() == 'index') current @endif "><a href="{{route('index')}}">{{trans('dashboard.Home')}}</a></li>
 
-                            <li class=" dropdown"><a href="#">About Us</a>
+                            <li class=" dropdown @if(Request::is(\Illuminate\Support\Facades\App::getLocale().'/hfmec/about-*')) current @endif"><a href="#">{{trans('dashboard.AboutUs')}}</a>
                                 <ul>
-                                    <li><a href="index.html">Introduction</a></li>
-                                    <li><a href="index-2.html">Vision & Values</a></li>
-                                    <li><a href="index-3.html">Expertise Summary</a></li>
-                                    <li><a href="index.html">Key Staff</a></li>
-                                    <li><a href="index-2.html">IMS Policy</a></li>
-                                    <li><a href="index-3.html">ISO Certificates</a></li>
+                                    <li><a href="{{route('introduction')}}">{{trans('dashboard.Introduction')}}</a></li>
+                                    <li><a href="{{route('vv')}}">{{trans('dashboard.Vision&Values')}}</a></li>
+                                    <li><a href="{{route('es')}}">{{trans('dashboard.ExpertiseSummary')}}</a></li>
+                                    <li><a href="{{route('team')}}">{{trans('dashboard.OfficeTeam')}}</a></li>
+                                    <li><a href="{{route('ims')}}">{{trans('dashboard.IMSPolicy')}}</a></li>
+                                    <li><a href="{{route('iso')}}">{{trans('dashboard.ISOCertificates')}}</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#">Services</a>
+                            <li class="dropdown @if(Request::is(\Illuminate\Support\Facades\App::getLocale().'/hfmec/service*')) current @endif"><a href="#">{{trans('dashboard.Services')}}</a>
                                 <ul>
                                     @foreach($services as $service)
-                                        <li><a href="services.html">{{$service->name}}</a></li>
+                                        <li><a href="{{route('service',$service->slug)}}">{{$service->name}}</a></li>
 
                                     @endforeach
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#">Projects</a>
+                            <li class="dropdown @if(Request::is(\Illuminate\Support\Facades\App::getLocale().'/hfmec/projects*')) current @endif"><a href="#">{{trans('dashboard.Projects')}}</a>
                                 <ul>
-                                    <li><a href="blog.html">Ongoing Projects</a></li>
-                                    <li><a href="blog-grid.html">Completed Projects</a></li>
-                                    <li><a href="blog-details.html">Project List (last 10 years)</a></li>
-                                    <li><a href="blog-details.html">Clients list</a></li>
+                                    <li><a href="{{route('ongoing')}}">{{trans('dashboard.OngoingProjects')}}</a></li>
+                                    <li><a href="{{route('completed')}}">{{trans('dashboard.CompletedProjects')}}</a></li>
+                                    <li><a href="{{route('last10years')}}">{{trans('dashboard.ProjectList(last 10 years)')}}</a></li>
+                                    <li><a href="{{route('clients')}}">{{trans('dashboard.ClientList')}}</a></li>
                                 </ul>
                             </li>
-                            <li ><a href="#">Company News</a> </li>
-                            <li><a href="#">Career</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
+                            <li class="@if(Route::current()->getName() == 'news') current @endif "><a href="{{route('news')}}">{{trans('dashboard.CompanyNews')}}</a> </li>
+                            <li class="@if(Route::current()->getName() == 'getCareer') current @endif" ><a href="{{route('getCareer')}}">{{trans('dashboard.Careers')}}</a></li>
+                            <li class=" @if(Route::current()->getName() == 'getContact') current @endif "><a href="{{route('getContact')}}">{{trans('dashboard.ContactUs')}}</a></li>
                         </ul>
                     </div>
                 </nav>
                 <!-- Main Menu End-->
-                <div class="btn-outer"><a href="contact.html" class="theme-btn quote-btn"><span class="fa fa-mail-reply-all"></span>Ask PROPOSAL</a></div>
+                <div class="btn-outer"><a href="{{route('getContact')}}" class="theme-btn quote-btn"><span class="fa fa-mail-reply-all"></span>{{trans('dashboard.AskPROPOSAL')}}</a></div>
             </div>
 
         </div>
@@ -140,7 +143,7 @@
         <div class="auto-container clearfix">
             <!--Logo-->
             <div class="logo pull-left">
-                <a href="index.html" class="img-responsive"><img src="{{asset('assets/frontend/images/logoh-small.png')}}" alt="Brighton" title="Brighton"></a>
+                <a href="index.html" class="img-responsive"><img src="{{asset('assets/frontend/images/logo-small.png')}}" width="250" height="70" alt="" title=""></a>
             </div>
 
             <!--Right Col-->
@@ -159,37 +162,37 @@
                     <div class="navbar-collapse collapse clearfix">
                         <ul class="navigation clearfix">
 
-                            <li><a href="about-us.html">Home</a></li>
+                            <li class="@if(Route::current()->getName() == 'index') current @endif "><a href="{{route('index')}}">{{trans('dashboard.Home')}}</a></li>
 
-                            <li class=" dropdown"><a href="#">About Us</a>
+                            <li class=" dropdown @if(Request::is(\Illuminate\Support\Facades\App::getLocale().'/hfmec/about-*')) current @endif"><a href="#">{{trans('dashboard.AboutUs')}}</a>
                                 <ul>
-                                    <li><a href="index.html">Introduction</a></li>
-                                    <li><a href="index-2.html">Vision & Values</a></li>
-                                    <li><a href="index-3.html">Expertise Summary</a></li>
-                                    <li><a href="index.html">Key Staff</a></li>
-                                    <li><a href="index-2.html">IMS Policy</a></li>
-                                    <li><a href="index-3.html">ISO Certificates</a></li>
+                                    <li><a href="{{route('introduction')}}">{{trans('dashboard.Introduction')}}</a></li>
+                                    <li><a href="{{route('vv')}}">{{trans('dashboard.Vision&Values')}}</a></li>
+                                    <li><a href="{{route('es')}}">{{trans('dashboard.ExpertiseSummary')}}</a></li>
+                                    <li><a href="{{route('team')}}">{{trans('dashboard.OfficeTeam')}}</a></li>
+                                    <li><a href="{{route('ims')}}">{{trans('dashboard.IMSPolicy')}}</a></li>
+                                    <li><a href="{{route('iso')}}">{{trans('dashboard.ISOCertificates')}}</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#">Services</a>
+                            <li class="dropdown @if(Request::is(\Illuminate\Support\Facades\App::getLocale().'/hfmec/service*')) current @endif"><a href="#">{{trans('dashboard.Services')}}</a>
                                 <ul>
                                     @foreach($services as $service)
-                                        <li><a href="services.html">{{$service->name}}</a></li>
+                                        <li><a href="{{route('service',$service->slug)}}">{{$service->name}}</a></li>
 
                                     @endforeach
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#">Projects</a>
+                            <li class="dropdown @if(Request::is(\Illuminate\Support\Facades\App::getLocale().'/hfmec/projects*')) current @endif"><a href="#">{{trans('dashboard.Projects')}}</a>
                                 <ul>
-                                    <li><a href="blog.html">Ongoing Projects</a></li>
-                                    <li><a href="blog-grid.html">Completed Projects</a></li>
-                                    <li><a href="blog-details.html">Project List (last 10 years)</a></li>
-                                    <li><a href="blog-details.html">Clients list</a></li>
+                                    <li><a href="{{route('ongoing')}}">{{trans('dashboard.OngoingProjects')}}</a></li>
+                                    <li><a href="{{route('completed')}}">{{trans('dashboard.CompletedProjects')}}</a></li>
+                                    <li><a href="{{route('last10years')}}">{{trans('dashboard.ProjectList(last 10 years)')}}</a></li>
+                                    <li><a href="{{route('clients')}}">{{trans('dashboard.ClientList')}}</a></li>
                                 </ul>
                             </li>
-                            <li ><a href="#">Company News</a> </li>
-                            <li><a href="#">Career</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
+                            <li class="@if(Route::current()->getName() == 'news') current @endif "><a href="{{route('news')}}">{{trans('dashboard.CompanyNews')}}</a> </li>
+                            <li class="@if(Route::current()->getName() == 'getCareer') current @endif" ><a href="{{route('getCareer')}}">{{trans('dashboard.Careerss')}}</a></li>
+                            <li class=" @if(Route::current()->getName() == 'getContact') current @endif "><a href="{{route('getContact')}}">{{trans('dashboard.ContactUs')}}</a></li>
                         </ul>
                     </div>
 

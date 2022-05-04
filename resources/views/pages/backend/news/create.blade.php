@@ -2,7 +2,7 @@
 
 @section('title')
 
-    الأخبار
+    {{trans('dashboard.HFMEC')}} - {{trans('dashboard.AddNews')}}
 
 @endsection
 
@@ -11,13 +11,13 @@
     <div class="page-title">
         <div class="row">
             <div class="col-sm-6">
-                <h4 class="mb-0">إضافة خبر</h4>
+                <h4 class="mb-0">{{trans('dashboard.AddNews')}}</h4>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}"
-                                                   class="default-color">الرئيسية</a></li>
-                    <li class="breadcrumb-item active">إضافة خبر</li>
+                                                   class="default-color">{{trans('dashboard.Main')}}</a></li>
+                    <li class="breadcrumb-item active">{{trans('dashboard.AddNews')}}</li>
                 </ol>
             </div>
         </div>
@@ -36,7 +36,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label> العنوان بالعربية :</label>
+                                    <label> {{trans('dashboard.TitleInArabic')}} :</label>
 
                                     <input type="text" name="title_ar" class="form-control" value="{{old('title_ar')}}">
 
@@ -47,7 +47,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label> العنوان بالإنجليزية :</label>
+                                    <label> {{trans('dashboard.TitleInEnglish')}} :</label>
 
                                     <input type="text" name="title_en" class="form-control" value="{{old('title_en')}}">
 
@@ -65,7 +65,7 @@
                         <div class="row">
                         <div class="col-md-6">
                                 <div class="form-group">
-                                    <label> محتوى الخبر بالعربية :</label>
+                                    <label> {{trans('dashboard.ContentInArabic')}} :</label>
 
                                     <textarea name="content_ar" rows="3" class="form-control summernote">
                             {!! old('content_ar') !!}
@@ -77,7 +77,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label> محتوى الخبر بالإنجليزية :</label>
+                                    <label> {{trans('dashboard.ContentInEnglish')}} :</label>
 
                                     <textarea name="content_en" rows="3" class="form-control summernote">
                             {!! old('content_en') !!}
@@ -98,7 +98,7 @@
 
                             <div class="col-12">
 
-                                <label for="cover">صورة الخبر :</label>
+                                <label for="cover">{{trans('dashboard.NewsImage')}} :</label>
                                 <br>
                                 <div class="file-loading">
                                     <input type="file"  name="image" id="new-image" class="file-input-overview ">
@@ -113,7 +113,7 @@
 
                         </div>
                         <br>
-                        <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ
+                        <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{trans('dashboard.Save')}}
                         </button>
 
 

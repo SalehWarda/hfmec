@@ -2,7 +2,7 @@
 
 @section('title')
 
-  شهادة ال ISO
+    {{trans('dashboard.HFMEC')}} - {{trans('dashboard.ISOCertificates')}}
 
 @endsection
 
@@ -15,13 +15,13 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-sm-6">
-                    <h4 class="mb-0"> شهادة ال ISO</h4>
+                    <h4 class="mb-0">{{trans('dashboard.ISOCertificates')}}</h4>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                         <li class="breadcrumb-item"><a href="{{route('dashboard')}}"
-                                                       class="default-color">الرئيسية</a></li>
-                        <li class="breadcrumb-item active"> شهادة ال ISO</li>
+                                                       class="default-color">{{trans('dashboard.Main')}}</a></li>
+                        <li class="breadcrumb-item active">{{trans('dashboard.ISOCertificates')}}</li>
                     </ol>
                 </div>
             </div>
@@ -50,7 +50,7 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="iso_ar">وصف الشهادة بالعربية :</label>
+                                                        <label for="iso_ar">{{trans('dashboard.ISOCertificatesInArabic')}} :</label>
 
                                                         <textarea name="iso_ar" rows="3" class="form-control summernote">{!! old('iso_ar',$iso->getTranslation('iso','ar'))  !!}</textarea>
 
@@ -61,7 +61,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="imsPolicy_en"> وصف الشهادة بالإنجليزية :</label>
+                                                        <label for="imsPolicy_en"> {{trans('dashboard.ISOCertificatesInEnglish')}} :</label>
 
                                                         <textarea name="iso_en" rows="3" class="form-control summernote">{!! old('iso_en',$iso->getTranslation('iso','en')) !!}</textarea>
 
@@ -76,7 +76,7 @@
 
                                                 <div class="col-12">
 
-                                                    <label for="image">صور سياسة IMS :</label>
+                                                    <label for="image">{{trans('dashboard.ISOCertificatesImages')}} :</label>
                                                     <br>
                                                     <div class="file-loading">
                                                         <input type="file" multiple name="images[]" id="iso-images" class="file-input-overview ">
@@ -91,7 +91,7 @@
 
                                             </div>
                                             <br>
-                                            <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ التغييرات</button>
+                                            <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{trans('dashboard.SaveChanges')}}</button>
 
 
                                         </form>

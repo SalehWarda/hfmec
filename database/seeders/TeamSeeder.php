@@ -17,8 +17,10 @@ class TeamSeeder extends Seeder
         //
         Team::create([
 
-            'name' => ['en' => 'enter name', 'ar'=>'أدخل الاسم'],
-            'job' => ['en' => 'enter job', 'ar'=>'أدخل الوظيفة'],
+            'name' => ['en' => 'enter name',
+                'ar'=>'أدخل الاسم'],
+            'job' => ['en' => 'enter job',
+                'ar'=>'أدخل الوظيفة'],
             'description' => ['en' => 'enter description', 'ar' => 'ادخل وصف الموظف'],
             'image' => 'team.png'
         ]);

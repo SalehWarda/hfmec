@@ -2,7 +2,7 @@
 
 @section('title')
 
-   الرؤيا والقيم
+    {{trans('dashboard.HFMEC')}} - {{trans('dashboard.Vision&Values')}}
 
 @endsection
 
@@ -15,13 +15,13 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-sm-6">
-                    <h4 class="mb-0"> الرؤيا والقيم</h4>
+                    <h4 class="mb-0"> {{trans('dashboard.Vision&Values')}}</h4>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                         <li class="breadcrumb-item"><a href="{{route('dashboard')}}"
-                                                       class="default-color">الرئيسية</a></li>
-                        <li class="breadcrumb-item active"> الرؤيا والقيم</li>
+                                                       class="default-color">{{trans('dashboard.Main')}}</a></li>
+                        <li class="breadcrumb-item active"> {{trans('dashboard.Vision&Values')}}</li>
                     </ol>
                 </div>
             </div>
@@ -50,7 +50,7 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="vv_ar">الرؤيا والقيم بالعربية :</label>
+                                                        <label for="vv_ar">{{trans('dashboard.Vision&ValuesInArabic')}} :</label>
 
                                                         <textarea name="vv_ar" rows="3" class="form-control summernote">{!! old('vv_ar',$vv->getTranslation('vv','ar'))  !!}</textarea>
 
@@ -61,7 +61,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="vv_en"> الرؤيا والقيم بالإنجليزية :</label>
+                                                        <label for="vv_en"> {{trans('dashboard.Vision&ValuesInEnglish')}} :</label>
 
                                                         <textarea name="vv_en" rows="3" class="form-control summernote">{!! old('vv_en',$vv->getTranslation('vv','en')) !!}</textarea>
 
@@ -76,7 +76,7 @@
 
                                                 <div class="col-12">
 
-                                                    <label for="image">صورة المقدمة :</label>
+                                                    <label for="image">{{trans('dashboard.Vision&ValuesImage')}} :</label>
                                                     <br>
                                                     <div class="file-loading">
                                                         <input type="file"  name="image" id="vv-image" class="file-input-overview ">
@@ -91,7 +91,7 @@
 
                                             </div>
                                             <br>
-                                            <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ التغييرات</button>
+                                            <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{trans('dashboard.SaveChanges')}}</button>
 
 
                                         </form>

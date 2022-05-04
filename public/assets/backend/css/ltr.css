@@ -14981,7 +14981,7 @@ button.toast-close-button {
 
 /*# sourceMappingURL=bootstrap-datepicker.css.map */
 /*
-    Common 
+    Common
 */
 .wizard,
 .tabcontrol {
@@ -20167,16 +20167,16 @@ ul.list-unstyled li {
   opacity: 1; }
 
 .admin-header .nav-link .notification-status {
-  position: absolute;
-  top: 12px;
-  right: 30%;
-  width: 5px;
-  min-width: 5px;
-  height: 5px;
-  min-height: 5px;
-  padding: 0;
-  border-radius: 100%;
-  line-height: 5px; }
+    position: absolute;
+    top: 5px;
+    right: 14%;
+    width: 13px;
+    min-width: 10px;
+    height: 12px;
+    min-height: 10px;
+    padding: 0;
+    border-radius: 100%;
+    line-height: 12px; }
 
 .admin-header .dropdown-item {
   font-size: 14px;

@@ -52,7 +52,7 @@ class Project extends Model
 
     public function status(){
 
-        return $this->status == 1 ? 'مكتمل' : 'تحت العمل';
+        return $this->status == 1 ? trans('dashboard.Completed') : trans('dashboard.Ongoing');
 
     }
 
@@ -77,8 +77,8 @@ class Project extends Model
     {
         switch ($this->status()){
 
-            case 0: $result = '<label class="badge badge-success">مكتمل</label>' ; break;
-            case 1: $result = '<label class="badge badge-warning">تحت العمل</label>' ; break;
+            case 0: $result = '<label class="badge badge-success">Completed</label>' ; break;
+            case 1: $result = '<label class="badge badge-warning">Ongoing</label>' ; break;
 
 
 

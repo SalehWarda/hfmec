@@ -2,7 +2,7 @@
 
 @section('title')
 
-    فريق المكتب
+    {{trans('dashboard.HFMEC')}} - {{trans('dashboard.EditMember')}}
 
 @endsection
 
@@ -11,13 +11,13 @@
     <div class="page-title">
         <div class="row">
             <div class="col-sm-6">
-                <h4 class="mb-0">فريق المكتب</h4>
+                <h4 class="mb-0">{{trans('dashboard.EditMember')}}</h4>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}"
-                                                   class="default-color">الرئيسية</a></li>
-                    <li class="breadcrumb-item active">فريق المكتب</li>
+                                                   class="default-color">{{trans('dashboard.Main')}}</a></li>
+                    <li class="breadcrumb-item active">{{trans('dashboard.EditMember')}}</li>
                 </ol>
             </div>
         </div>
@@ -39,7 +39,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label> إسم الموظف بالعربية :</label>
+                                    <label> {{trans('dashboard.MemberNameInArabic')}} :</label>
 
                                     <input type="text" name="name_ar" class="form-control" value="{{old('name_ar',$team->getTranslation('name','ar'))}}">
 
@@ -50,7 +50,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label> إسم الموظف بالإنجليزية :</label>
+                                    <label> {{trans('dashboard.MemberNameInEnglish')}} :</label>
 
                                     <input type="text" name="name_en" class="form-control" value="{{old('name_en',$team->getTranslation('name','en'))}}">
 
@@ -62,7 +62,7 @@
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label> الوظيفة بالعربية :</label>
+                                    <label> {{trans('dashboard.JobInArabic')}} :</label>
 
                                     <input type="text" name="job_ar" class="form-control" value="{{old('job_ar',$team->getTranslation('job','ar'))}}">
 
@@ -74,7 +74,7 @@
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label> الوظيفة بالإنجليزية :</label>
+                                    <label> {{trans('dashboard.JobInEnglish')}} :</label>
 
                                     <input type="text" name="job_en" class="form-control" value="{{old('job_en',$team->getTranslation('job','en'))}}">
 
@@ -91,7 +91,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label> وصف الموظف بالعربية :</label>
+                                    <label> {{trans('dashboard.MemberDescriptionInArabic')}} :</label>
 
                                     <textarea name="description_ar" rows="3" class="form-control summernote">
                             {!! old('description_ar',$team->getTranslation('description','ar')) !!}
@@ -103,7 +103,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label> وصف الموظف بالإنجليزية :</label>
+                                    <label> {{trans('dashboard.MemberDescriptionInEnglish')}} :</label>
 
                                     <textarea name="description_en" rows="3" class="form-control summernote">
                             {!! old('description_en',$team->getTranslation('description','en')) !!}
@@ -124,7 +124,7 @@
 
                             <div class="col-12">
 
-                                <label for="cover">صورة الموظف :</label>
+                                <label for="cover">{{trans('dashboard.MemberImage')}} :</label>
                                 <br>
                                 <div class="file-loading">
                                     <input type="file"  name="image" id="team-image" class="file-input-overview ">
@@ -139,7 +139,7 @@
 
                         </div>
                         <br>
-                        <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ
+                        <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{trans('dashboard.SaveChanges')}}
                         </button>
 
 

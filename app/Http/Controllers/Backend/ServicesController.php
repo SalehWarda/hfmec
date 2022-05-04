@@ -48,7 +48,7 @@ class ServicesController extends Controller
             $file_name = Str::slug($request->name_en) . "." . $image->getClientOriginalExtension();
             $path = public_path('assets/images/services/' . $file_name);
 
-            Image::make($image->getRealPath())->resize(500, null, function ($constraint) {
+            Image::make($image->getRealPath())->resize(370, 250, function ($constraint) {
 
                 $constraint->aspectRatio();
             })->save($path, 100);
@@ -58,7 +58,7 @@ class ServicesController extends Controller
         }
         Service::create($input);
 
-        toastr()->success('تم الإضافة بنجاح !');
+        toastr()->success(trans('dashboard.Created_Successfully'));
         return redirect()->route('admin.services');
 
 
@@ -101,7 +101,7 @@ class ServicesController extends Controller
             $file_name = Str::slug($request->name_en) . "." . $image->getClientOriginalExtension();
             $path = public_path('assets/images/services/' . $file_name);
 
-            Image::make($image->getRealPath())->resize(500, null, function ($constraint) {
+            Image::make($image->getRealPath())->resize(370, 250, function ($constraint) {
 
                 $constraint->aspectRatio();
             })->save($path, 100);
@@ -111,7 +111,7 @@ class ServicesController extends Controller
         }
         $service->update($input);
 
-        toastr()->success('تم التعديل بنجاح !');
+        toastr()->success(trans('dashboard.Updated_Successfully'));
         return back();
     }
 
@@ -128,7 +128,7 @@ class ServicesController extends Controller
             }
             $service->delete();
 
-            toastr()->error('تم الحذف بنجاح !');
+            toastr()->error(trans('dashboard.Deleted_Successfully'));
             return redirect()->back();
 
         } catch (\Exception $ex) {

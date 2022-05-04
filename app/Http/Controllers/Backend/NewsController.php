@@ -58,7 +58,7 @@ class NewsController extends Controller
         }
         NewCompany::create($input);
 
-        toastr()->success('تم الإضافة بنجاح !');
+        toastr()->success(trans('dashboard.Created_Successfully'));
         return redirect()->route('admin.news');
 
     }
@@ -108,7 +108,7 @@ class NewsController extends Controller
         }
         $new->update($input);
 
-        toastr()->success('تم التعديل بنجاح !');
+        toastr()->success(trans('dashboard.Updated_Successfully'));
         return back();
     }
 
@@ -125,7 +125,7 @@ class NewsController extends Controller
             }
             $new->delete();
 
-            toastr()->error('تم الحذف بنجاح !');
+            toastr()->error(trans('dashboard.Deleted_Successfully'));
             return redirect()->back();
 
         } catch (\Exception $ex) {

@@ -19,6 +19,7 @@ class CreateProjectsTable extends Migration
             $table->string('slug')->unique();
             $table->text('description')->nullable();
             $table->string('client');
+            $table->string('client_image')->nullable();
             $table->date('commencement_date')->nullable();
             $table->string('location');
             $table->boolean('status')->default(false);

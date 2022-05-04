@@ -74,7 +74,7 @@ class ProjectSeeder extends Seeder
             ]) ;
 
 
-        for ($i=0; $i<=20;$i++){
+        for ($i=0; $i<=7;$i++){
              Project::create([
 
                 'name' => ['en' =>  $faker->sentence(2,true), 'ar'=> $faker->sentence(2,true)] ,

@@ -2,7 +2,7 @@
 
 @section('title')
 
-   سياسة IMS
+    {{trans('dashboard.HFMEC')}} - {{trans('dashboard.IMSPolicy')}}
 
 @endsection
 
@@ -15,13 +15,13 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-sm-6">
-                    <h4 class="mb-0">سياسة IMS</h4>
+                    <h4 class="mb-0">{{trans('dashboard.IMSPolicy')}}</h4>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                         <li class="breadcrumb-item"><a href="{{route('dashboard')}}"
-                                                       class="default-color">الرئيسية</a></li>
-                        <li class="breadcrumb-item active">سياسة IMS</li>
+                                                       class="default-color">{{trans('dashboard.Main')}}</a></li>
+                        <li class="breadcrumb-item active">{{trans('dashboard.IMSPolicy')}}</li>
                     </ol>
                 </div>
             </div>
@@ -50,7 +50,7 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="imsPolicy_ar">السياسة بالعربية :</label>
+                                                        <label for="imsPolicy_ar">{{trans('dashboard.PolicyInArabic')}} :</label>
 
                                                         <textarea name="imsPolicy_ar" rows="3" class="form-control summernote">{!! old('imsPolicy_ar',$ims->getTranslation('imsPolicy','ar'))  !!}</textarea>
 
@@ -61,7 +61,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="imsPolicy_en"> االسياسة بالإنجليزية :</label>
+                                                        <label for="imsPolicy_en"> {{trans('dashboard.PolicyInEnglish')}} :</label>
 
                                                         <textarea name="imsPolicy_en" rows="3" class="form-control summernote">{!! old('imsPolicy_en',$ims->getTranslation('imsPolicy','en')) !!}</textarea>
 
@@ -76,7 +76,7 @@
 
                                                 <div class="col-12">
 
-                                                    <label for="image">صور سياسة IMS :</label>
+                                                    <label for="image">{{trans('dashboard.IMSPolicyImages')}} :</label>
                                                     <br>
                                                     <div class="file-loading">
                                                         <input type="file" multiple name="images[]" id="ims-images" class="file-input-overview ">
@@ -91,7 +91,7 @@
 
                                             </div>
                                             <br>
-                                            <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ التغييرات</button>
+                                            <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{trans('dashboard.SaveChanges')}}</button>
 
 
                                         </form>

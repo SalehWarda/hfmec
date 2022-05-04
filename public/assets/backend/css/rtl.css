@@ -21048,15 +21048,15 @@ ul.list-unstyled li {
 
 .admin-header .nav-link .notification-status {
   position: absolute;
-  top: 12px;
-  right: 30%;
-  width: 5px;
-  min-width: 5px;
-  height: 5px;
-  min-height: 5px;
+  top: 5px;
+  right: 14%;
+  width: 13px;
+  min-width: 10px;
+  height: 12px;
+  min-height: 10px;
   padding: 0;
   border-radius: 100%;
-  line-height: 5px; }
+  line-height: 12px; }
 
 .admin-header .dropdown-item {
   font-size: 14px;

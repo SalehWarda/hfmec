@@ -2,7 +2,7 @@
 
 @section('title')
 
-    فريق المكتب
+    {{trans('dashboard.HFMEC')}} - {{trans('dashboard.OfficeTeam')}}
 
 @endsection
 @section('content')
@@ -10,12 +10,12 @@
     <div class="page-title">
         <div class="row">
             <div class="col-sm-6">
-                <h4 class="mb-0">فريق المكتب </h4>
+                <h4 class="mb-0">{{trans('dashboard.OfficeTeam')}} </h4>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
-                    <li class="breadcrumb-item"><a href="#" class="default-color">الرئيسية</a></li>
-                    <li class="breadcrumb-item active">فريق المكتب</li>
+                    <li class="breadcrumb-item"><a href="#" class="default-color">{{trans('dashboard.Main')}}</a></li>
+                    <li class="breadcrumb-item active">{{trans('dashboard.OfficeTeam')}}</li>
                 </ol>
             </div>
         </div>
@@ -29,14 +29,14 @@
 
                     <div class="d-block d-md-flex justify-content-between">
                         <div class="d-block">
-                            <h5 class="card-title pb-0 border-0">فريق المكتب</h5>
+                            <h5 class="card-title pb-0 border-0">{{trans('dashboard.OfficeTeam')}}</h5>
                         </div>
 
                         <div class="d-block d-md-flex justify-content-between">
                             <div class="d-block">
                                 <a class="btn btn-success icon left"
 
-                                   href="{{route('admin.teams.create')}}">إضافة عضو جديد <i class="fa fa-plus"></i></a>
+                                   href="{{route('admin.teams.create')}}">{{trans('dashboard.AddMember')}} <i class="fa fa-plus"></i></a>
                             </div>
 
                         </div>
@@ -48,11 +48,11 @@
                         <table class="table center-aligned-table mb-0">
                             <thead>
                             <tr class="text-dark">
-                                <th>الصورة</th>
-                                <th>الإسم</th>
-                                <th>الوظيفة</th>
-                                <th>نبذة عنه</th>
-                                <th>العمليات</th>
+                                <th>{{trans('dashboard.MemberImage')}}</th>
+                                <th>{{trans('dashboard.MemberName')}}</th>
+                                <th>{{trans('dashboard.MemberJob')}}</th>
+                                <th>{{trans('dashboard.AboutMember')}}</th>
+                                <th>{{trans('dashboard.Actions')}}</th>
 
                             </tr>
                             </thead>
@@ -75,11 +75,11 @@
 
                                     <td>
                                         <a href="{{route('admin.teams.edit',$team->id)}}"
-                                           class="btn btn-info btn-sm" role="button" title="Edit" aria-pressed="true"><i
+                                           class="btn btn-info btn-sm" role="button" title="{{trans('dashboard.Edit')}}" aria-pressed="true"><i
                                                 class="fa fa-edit"></i></a>
                                         <button type="button" class="btn btn-danger btn-sm"
                                                 data-toggle="modal"
-                                                data-target="#delete_team{{ $team->id }}" title="Delete"><i
+                                                data-target="#delete_team{{ $team->id }}" title="{{trans('dashboard.Delete')}}"><i
                                                 class="fa fa-trash"></i></button>
                                     </td>
                             </tr>
@@ -93,7 +93,7 @@
                                             <div class="modal-title">
                                                 <div class="mb-30">
 
-                                                    <h6> حذف  {{$team->name}}</h6>
+                                                    <h6> {{trans('dashboard.Delete')}}  {{$team->name}}</h6>
 
                                                 </div>
                                             </div>
@@ -111,15 +111,15 @@
 
                                                 <input type="hidden" name="delete_team_id" value="{{$team->id}}" id="id">
 
-                                                <h6>هل أنت متأكد من عملية الحذف: <span class="text-danger">{{$team->name}}</span></h6>
+                                                <h6>{{trans('dashboard.AreSureOfTheDeletingProcess')}}: <span class="text-danger">{{$team->name}}</span></h6>
 
 
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">إغلاق
+                                                            data-dismiss="modal">{{trans('dashboard.Close')}}
                                                     </button>
                                                     <button type="submit"
-                                                            class="btn btn-danger">حذف</button>
+                                                            class="btn btn-danger">{{trans('dashboard.Delete')}}</button>
 
                                                 </div>
                                             </form>

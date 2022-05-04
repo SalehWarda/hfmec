@@ -46,7 +46,7 @@ class AboutController extends Controller
             $file_name = 'introduction' . "." . $image->getClientOriginalExtension();
             $path = public_path('assets/images/about/' . $file_name);
 
-            Image::make($image->getRealPath())->resize(500, null, function ($constraint) {
+            Image::make($image->getRealPath())->resize(1920, null, function ($constraint) {
 
                 $constraint->aspectRatio();
             })->save($path, 100);
@@ -56,7 +56,7 @@ class AboutController extends Controller
         }
         $introduction->update($input);
 
-        toastr()->success('تم التعديل بنجاح !');
+        toastr()->success(trans('dashboard.Updated_Successfully'));
         return back();
 
     }
@@ -106,7 +106,7 @@ class AboutController extends Controller
             $file_name = 'vv' . "." . $image->getClientOriginalExtension();
             $path = public_path('assets/images/about/' . $file_name);
 
-            Image::make($image->getRealPath())->resize(500, null, function ($constraint) {
+            Image::make($image->getRealPath())->resize(1920, null, function ($constraint) {
 
                 $constraint->aspectRatio();
             })->save($path, 100);
@@ -116,7 +116,7 @@ class AboutController extends Controller
         }
         $vv->update($input);
 
-        toastr()->success('تم التعديل بنجاح !');
+        toastr()->success(trans('dashboard.Updated_Successfully'));
         return back();
 
     }
@@ -164,7 +164,7 @@ class AboutController extends Controller
             $file_name = 'expertiseSummary' . "." . $image->getClientOriginalExtension();
             $path = public_path('assets/images/about/' . $file_name);
 
-            Image::make($image->getRealPath())->resize(500, null, function ($constraint) {
+            Image::make($image->getRealPath())->resize(1920, null, function ($constraint) {
 
                 $constraint->aspectRatio();
             })->save($path, 100);
@@ -174,7 +174,7 @@ class AboutController extends Controller
         }
         $es->update($input);
 
-        toastr()->success('تم التعديل بنجاح !');
+        toastr()->success(trans('dashboard.Updated_Successfully'));
         return back();
 
     }
@@ -220,7 +220,7 @@ class AboutController extends Controller
                 $file_size= $image->getSize();
                 $file_type = $image->getMimeType();
                 $path = public_path('assets/images/about/'.$fie_name);
-                Image::make($image->getRealPath())->resize(500,null,function ($constraint){
+                Image::make($image->getRealPath())->resize(1920,null,function ($constraint){
                     $constraint->aspectRatio();
                 })->save($path,100);
 
@@ -240,7 +240,7 @@ class AboutController extends Controller
         }
 
 
-        toastr()->success('تم التعديل بنجاح !');
+        toastr()->success(trans('dashboard.Updated_Successfully'));
         return back();
 
     }
@@ -288,7 +288,7 @@ class AboutController extends Controller
                 $file_size= $image->getSize();
                 $file_type = $image->getMimeType();
                 $path = public_path('assets/images/about/'.$fie_name);
-                Image::make($image->getRealPath())->resize(500,null,function ($constraint){
+                Image::make($image->getRealPath())->resize(1920,null,function ($constraint){
                     $constraint->aspectRatio();
                 })->save($path,100);
 
@@ -308,7 +308,7 @@ class AboutController extends Controller
         }
 
 
-        toastr()->success('تم التعديل بنجاح !');
+        toastr()->success(trans('dashboard.Updated_Successfully'));
         return back();
 
     }

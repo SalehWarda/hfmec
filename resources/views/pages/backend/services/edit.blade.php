@@ -2,7 +2,7 @@
 
 @section('title')
 
-    الخدمات
+    {{trans('dashboard.HFMEC')}} - {{trans('dashboard.EditService')}}
 
 @endsection
 
@@ -11,13 +11,13 @@
     <div class="page-title">
         <div class="row">
             <div class="col-sm-6">
-                <h4 class="mb-0">إضافة خدمة</h4>
+                <h4 class="mb-0">{{trans('dashboard.EditService')}}</h4>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}"
-                                                   class="default-color">الرئيسية</a></li>
-                    <li class="breadcrumb-item active">إضافة خدمة</li>
+                                                   class="default-color">{{trans('dashboard.Main')}}</a></li>
+                    <li class="breadcrumb-item active">{{trans('dashboard.EditService')}}</li>
                 </ol>
             </div>
         </div>
@@ -38,7 +38,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label> إسم الخدمة بالعربية :</label>
+                                    <label> {{trans('dashboard.ServiceNameInArabic')}} :</label>
 
                                     <input type="text" name="name_ar" class="form-control" value="{{old('name_ar',$service->getTranslation('name','ar'))}}">
 
@@ -49,7 +49,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label> إسم الخدمة بالإنجليزية :</label>
+                                    <label> {{trans('dashboard.ServiceNameInEnglish')}} :</label>
 
                                     <input type="text" name="name_en" class="form-control" value="{{old('name_en',$service->getTranslation('name','en'))}}">
 
@@ -61,13 +61,13 @@
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="status">الحالة :</label>
+                                    <label for="status">{{trans('dashboard.Status')}} :</label>
                                     <br>
                                     <select class="form-control form-control-lg mb-15" name="status">
 
-                                        <option selected disabled> إختر...</option>
-                                        <option value="1" {{old('status',$service->status) == '1' ? 'selected' : null}}>نشط</option>
-                                        <option value="0" {{old('status',$service->status) == '0' ? 'selected' : null}}>غير نشط</option>
+                                        <option selected disabled> {{trans('dashboard.Choose')}}...</option>
+                                        <option value="1" {{old('status',$service->status) == '1' ? 'selected' : null}}>{{trans('dashboard.Active')}}</option>
+                                        <option value="0" {{old('status',$service->status) == '0' ? 'selected' : null}}>{{trans('dashboard.Inactive')}}</option>
 
                                     </select>
                                     @error('status')
@@ -82,7 +82,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label> وصف الخدمة بالعربية :</label>
+                                    <label> {{trans('dashboard.ServiceDescriptionInArabic')}} :</label>
 
                                     <textarea name="description_ar" rows="3" class="form-control summernote">
                             {!! old('description_ar',$service->getTranslation('description','ar')) !!}
@@ -94,7 +94,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label> وصف الخدمة بالإنجليزية :</label>
+                                    <label> {{trans('dashboard.ServiceDescriptionInEnglish')}} :</label>
 
                                     <textarea name="description_en" rows="3" class="form-control summernote">
                             {!! old('description_en',$service->getTranslation('description','en')) !!}
@@ -115,7 +115,7 @@
 
                             <div class="col-12">
 
-                                <label for="cover">صورة الخدمة :</label>
+                                <label for="cover">{{trans('dashboard.ServiceImage')}} :</label>
                                 <br>
                                 <div class="file-loading">
                                     <input type="file"  name="image" id="service-image" class="file-input-overview ">
@@ -130,7 +130,7 @@
 
                         </div>
                         <br>
-                        <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ
+                        <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{trans('dashboard.SaveChanges')}}
                         </button>
 
 

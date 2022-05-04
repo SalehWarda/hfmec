@@ -39,7 +39,9 @@ class ProjectRequest extends FormRequest
                         'location'=>'required',
                         'commencement_date' => 'required|date_format:Y-m-d',
                         'images' => 'nullable',
-                        'images.*'=> 'mimes:jpg,jpeg,png,gif|max:5000'
+                        'client_image' => 'nullable',
+                        'images.*'=> 'mimes:jpg,jpeg,png,gif|max:5000',
+                        'client_image.*'=> 'mimes:jpg,jpeg,png,gif|max:5000'
 
                     ];
                 };
@@ -58,7 +60,11 @@ class ProjectRequest extends FormRequest
                     'location'=>'required',
                     'commencement_date' => 'required|date_format:Y-m-d',
                     'images' => 'nullable',
-                    'images.*'=> 'mimes:jpg,jpeg,png,gif|max:5000'
+                    'client_image' => 'nullable',
+
+                    'images.*'=> 'mimes:jpg,jpeg,png,gif|max:5000',
+                    'client_image.*'=> 'mimes:jpg,jpeg,png,gif|max:5000'
+
 
                 ];
             }

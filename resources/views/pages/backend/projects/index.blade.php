@@ -2,7 +2,7 @@
 
 @section('title')
 
-    المشاريع
+    {{trans('dashboard.HFMEC')}} - {{trans('dashboard.Projects')}}
 
 @endsection
 @section('content')
@@ -10,12 +10,12 @@
     <div class="page-title">
         <div class="row">
             <div class="col-sm-6">
-                <h4 class="mb-0">المشاريع </h4>
+                <h4 class="mb-0">{{trans('dashboard.Projects')}} </h4>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
-                    <li class="breadcrumb-item"><a href="#" class="default-color">الرئيسية</a></li>
-                    <li class="breadcrumb-item active">المشاريع</li>
+                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}" class="default-color">{{trans('dashboard.Main')}}</a></li>
+                    <li class="breadcrumb-item active">{{trans('dashboard.Projects')}}</li>
                 </ol>
             </div>
         </div>
@@ -29,14 +29,14 @@
 
                     <div class="d-block d-md-flex justify-content-between">
                         <div class="d-block">
-                            <h5 class="card-title pb-0 border-0">المشاريع</h5>
+                            <h5 class="card-title pb-0 border-0">{{trans('dashboard.Projects')}}</h5>
                         </div>
 
                         <div class="d-block d-md-flex justify-content-between">
                             <div class="d-block">
                                 <a class="btn btn-success icon left"
 
-                                   href="{{route('admin.projects.create')}}">إضافة مشروع جديدة <i class="fa fa-plus"></i></a>
+                                   href="{{route('admin.projects.create')}}">{{trans('dashboard.AddProject')}} <i class="fa fa-plus"></i></a>
                             </div>
 
                         </div>
@@ -48,13 +48,13 @@
                         <table class="table center-aligned-table mb-0">
                             <thead>
                             <tr class="text-dark">
-                                <th>الصورة</th>
-                                <th>الإسم</th>
-                                <th>العميل</th>
-                                <th>الخدمة</th>
-                                <th>تاريخ البداية</th>
-                                <th>الحالة</th>
-                                <th>العمليات</th>
+                                <th>{{trans('dashboard.ProjectImage')}}</th>
+                                <th>{{trans('dashboard.ProjectName')}}</th>
+                                <th>{{trans('dashboard.Client')}}</th>
+                                <th>{{trans('dashboard.Service')}}</th>
+                                <th>{{trans('dashboard.CommencementDate')}}</th>
+                                <th>{{trans('dashboard.Status')}}</th>
+                                <th>{{trans('dashboard.Actions')}}</th>
 
                             </tr>
                             </thead>
@@ -78,14 +78,14 @@
 
                                     <td>
                                         <a href="{{route('admin.projects.edit',$project->id)}}"
-                                           class="btn btn-info btn-sm" role="button" title="Edit" aria-pressed="true"><i
+                                           class="btn btn-info btn-sm" role="button" title="{{trans('dashboard.Edit')}}" aria-pressed="true"><i
                                                 class="fa fa-edit"></i></a>
                                         <a href="{{route('admin.projects.show',$project->id)}}"
-                                           class="btn btn-warning btn-sm" role="button" title="Show" aria-pressed="true"><i
+                                           class="btn btn-warning btn-sm" role="button" title="{{trans('dashboard.Show')}}" aria-pressed="true"><i
                                                 class="fa fa-eye"></i></a>
                                         <button type="button" class="btn btn-danger btn-sm"
                                                 data-toggle="modal"
-                                                data-target="#delete_project{{ $project->id }}" title="Delete"><i
+                                                data-target="#delete_project{{ $project->id }}" title="{{trans('dashboard.Delete')}}"><i
                                                 class="fa fa-trash"></i></button>
                                     </td>
                             </tr>
@@ -99,7 +99,7 @@
                                             <div class="modal-title">
                                                 <div class="mb-30">
 
-                                                    <h6> حذف  {{$project->name}}</h6>
+                                                    <h6> {{trans('dashboard.Delete')}}  {{$project->name}}</h6>
 
                                                 </div>
                                             </div>
@@ -117,15 +117,15 @@
 
                                                 <input type="hidden" name="delete_project_id" value="{{$project->id}}" id="id">
 
-                                                <h6>هل أنت متأكد من عملية الحذف: <span class="text-danger">{{$project->name}}</span></h6>
+                                                <h6>{{trans('dashboard.AreSureOfTheDeletingProcess')}}: <span class="text-danger">{{$project->name}}</span></h6>
 
 
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">إغلاق
+                                                            data-dismiss="modal">{{trans('dashboard.Close')}}
                                                     </button>
                                                     <button type="submit"
-                                                            class="btn btn-danger">حذف</button>
+                                                            class="btn btn-danger">{{trans('dashboard.Delete')}}</button>
 
                                                 </div>
                                             </form>

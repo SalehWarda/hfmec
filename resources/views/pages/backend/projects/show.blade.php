@@ -1,9 +1,15 @@
 @extends('layouts.admin')
+
+@section('title')
+
+    {{trans('dashboard.HFMEC')}} - {{trans('dashboard.ProjectView')}}
+
+@endsection
 @section('content')
 
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex">
-            <h6 class="m-0 font-weight-bold text-primary">تفاصيل أكثر</h6>
+            <h6 class="m-0 font-weight-bold text-primary">{{trans('dashboard.MoreDetails')}}</h6>
 
         </div>
 
@@ -17,32 +23,32 @@
                     <table class="table table-hover">
                         <tbody>
                         <tr>
-                            <th>إسم المشروع</th>
+                            <th>{{trans('dashboard.ProjectName')}}</th>
                             <td>{{$project->name}}</td>
                         </tr>
                         <tr>
-                            <th>نوع الخدمة </th>
+                            <th>{{trans('dashboard.Service')}} </th>
                             <td>{{ $project->service->name }}</td>
                         </tr>
                         <tr>
-                            <th>العميل</th>
+                            <th>{{trans('dashboard.Client')}}</th>
                             <td>{{$project->client}}</td>
                         </tr>
 
                         <tr>
-                            <th>الموقع الجغرافي</th>
+                            <th>{{trans('dashboard.Location')}}</th>
                             <td>{{$project->client}}</td>
 
                         </tr>
 
                         <tr>
-                            <th>تاريخ البداية</th>
+                            <th>{{trans('dashboard.CommencementDate')}}</th>
                             <td>{{$project->commencement_date}}</td>
                         </tr>
 
                         <tr>
 
-                            <th>حالة المشروع</th>
+                            <th>{{trans('dashboard.Status')}}</th>
                             <td>{!! $project->statusWithLabel() !!}</td>
                         </tr>
 
@@ -56,7 +62,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">وصف المشروع</h6>
+            <h6 class="m-0 font-weight-bold text-primary">{{trans('dashboard.Description')}}</h6>
         </div>
 
         <div class="table-responsive">

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-2">
                 <div class="form-group">
-                    <input type="text" name="keyword" value="{{old('keyword',request()->input('keyword'))}}" class="form-control" placeholder="search here">
+                    <input type="text" name="keyword" value="{{old('keyword',request()->input('keyword'))}}" class="form-control" placeholder="{{trans('dashboard.SearchHere')}}">
 
                 </div>
 
@@ -62,7 +62,7 @@
 
             <div class="col-2">
                 <div class="form-group ">
-                    <button type="submit" name="submit" class="btn btn-info ml-70"><i class="fa fa-search"></i> بحث </button>
+                    <button type="submit" name="submit" class="btn btn-info ml-70"><i class="fa fa-search"></i> {{trans('dashboard.Search')}} </button>
                 </div>
             </div>
         </div>

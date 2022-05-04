@@ -17,7 +17,8 @@
         "mcamara/laravel-localization": "^1.7",
         "nicolaslopezj/searchable": "^1.13",
         "spatie/laravel-translatable": "^4.6",
-        "yoeunes/toastr": "^1.2"
+        "yoeunes/toastr": "^1.2",
+      "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

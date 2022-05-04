@@ -53,6 +53,19 @@ class ProjectsController extends Controller
         $input['service_id'] = $request->service_id;
         $project = Project::create($input);
 
+        if ($client_image = $request->file('client_image')) {
+            $file_namec = Str::slug($request->client) . "." . $client_image->getClientOriginalExtension();
+            $path = public_path('assets/images/client/' . $file_namec);
+
+            Image::make($client_image->getRealPath())->resize(370, 250, function ($constraint) {
+
+                $constraint->aspectRatio();
+            })->save($path, 100);
+
+            $input['client_image'] = $file_namec;
+
+        }
+
         $i=1;
         if($request->images && count($request->images) > 0){
             foreach ($request->images as $image){
@@ -79,7 +92,7 @@ class ProjectsController extends Controller
 
 
         }
-        toastr()->success('تم الإضافة بنجاح');
+        toastr()->success(trans('dashboard.Created_Successfully'));
         return redirect()->route('admin.projects');
     }
 
@@ -114,8 +127,29 @@ class ProjectsController extends Controller
         $input['commencement_date'] = $request->commencement_date;
         $input['location'] = $request->location;
         $input['service_id'] = $request->service_id;
-        $project->update($input);
 
+
+
+        if ($client_image = $request->file('client_image')) {
+
+            if ($project->client_image != null && File::exists('assets/images/client/' . $project->client_image)) {
+
+                unlink('assets/images/client/' . $project->client_image);
+            }
+
+
+            $file_namec = Str::slug($request->client) . "." . $client_image->getClientOriginalExtension();
+            $path = public_path('assets/images/client/' . $file_namec);
+
+            Image::make($client_image->getRealPath())->resize(370, 250, function ($constraint) {
+
+                $constraint->aspectRatio();
+            })->save($path, 100);
+
+            $input['client_image'] = $file_namec;
+
+        }
+        $project->update($input);
 
         $i= $project->media()->count() +1;
         if($request->images && count($request->images) > 0){
@@ -144,7 +178,7 @@ class ProjectsController extends Controller
 
         }
 
-        toastr()->success('تم التعديل بنجاح !');
+        toastr()->success(trans('dashboard.Updated_Successfully'));
         return back();
     }
 
@@ -161,7 +195,7 @@ class ProjectsController extends Controller
             }
             $project->delete();
 
-            toastr()->error('تم الحذف بنجاح !');
+            toastr()->error(trans('dashboard.Deleted_Successfully'));
             return redirect()->back();
 
         } catch (\Exception $ex) {
@@ -189,6 +223,21 @@ class ProjectsController extends Controller
         }
 
         $image->delete();
+        return true;
+    }
+
+    public function clientremoveImage(Request $request)
+    {
+
+
+        $client = Project::findOrFail($request->client_id);
+        if (File::exists('assets/images/client/' . $client->client_image)) {
+
+            unlink('assets/images/client/' . $client->client_image);
+            $client->client_image = null;
+            $client->save();
+
+        }
         return true;
     }
 

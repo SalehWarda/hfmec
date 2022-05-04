@@ -18,7 +18,7 @@ class CreateTeamsTable extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->string('job');
-            $table->text('description');
+            $table->longText('description');
             $table->string('image');
             $table->timestamps();
         });
